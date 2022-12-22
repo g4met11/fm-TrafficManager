@@ -9,7 +9,7 @@ Lang["en"] = {
         ["slowtraffic"] = "Traffic is now slow",
         -- Stoppet trafik'
         ["stoppedtraffic"] = "Traffic has been stopped",
-    }
+    },
 
     menu = {
         -- Først mødte Menu

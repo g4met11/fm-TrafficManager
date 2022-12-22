@@ -2,14 +2,15 @@ Lang["da"] = {
     notify = {
         -- Brugt meget
         ["notifyheader"] = "Trafik Styring",
-
         -- Åben trafik
         ["opentraffic"] = "Trafikken glider igen",
         -- Langsom trafik
         ["slowtraffic"] = "Trafikken er langsom",
         -- Stoppet trafik'
         ["stoppedtraffic"] = "Trafikken er stoppet",
-    }
+        -- Limit
+        ["zonelimit"] = "Der kan maks laves 1 zone afgangen",
+    },
 
     menu = {
         -- Først mødte Menu

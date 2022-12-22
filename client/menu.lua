@@ -120,10 +120,13 @@ if config.Framework == 'qb' then
         })
     end)
 elseif config.Framework == 'esx' then
-    
+    -- Fatter ikke lige ESX docs :/
 end
+
 RegisterCommand('TrafficManagerSystem', function(source, args, user)
     TriggerEvent('mainMenu:TrafficManager')
 end, admin)
 
-RegisterKeyMapping('TrafficManagerSystem', 'Åben Trafik System', 'keyboard', 'F9')
+if config.UseKeybind then
+    RegisterKeyMapping('TrafficManagerSystem', 'Åben Trafik System', 'keyboard', config.Keybind)
+end
