@@ -9,6 +9,10 @@ Lang["en"] = {
         ["slowtraffic"] = "Traffic is now slow",
         -- Stoppet trafik'
         ["stoppedtraffic"] = "Traffic has been stopped",
+        -- Limit
+        ["zonelimit"] = "You can max have 1 zone at a time",
+        -- No access
+        ["noaccess"] = "You don't have access to this menu",
     },
 
     menu = {

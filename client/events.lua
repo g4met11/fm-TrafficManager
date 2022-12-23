@@ -1,16 +1,17 @@
 
 if config.Framework == 'qb' then
     local QBCore = exports['qb-core']:GetCoreObject()
-elseif config.Framework == 'esx' then
-    local ESX = exports['es_extended']:getSharedObject()
+end
+if config.Framework == 'esx' then
+    ESX = exports["es_extended"]:getSharedObject()
 end
 
 local speedzone = nil
 local ActiveZones = 0
 local ZoneLimit = 1
 
-RegisterNetEvent('slowtraffic50')
-AddEventHandler('slowtraffic50', function()
+RegisterNetEvent('fm-TrafficManager:slowtraffic50')
+AddEventHandler('fm-TrafficManager:slowtraffic50', function()
     ActiveZones = ActiveZones + 1
     if (ActiveZones <= ZoneLimit) then
         blip = AddBlipForRadius(GetEntityCoords(PlayerPedId()),50.0)
@@ -48,8 +49,8 @@ AddEventHandler('slowtraffic50', function()
     
 end)
 
-RegisterNetEvent('slowtraffic75')
-AddEventHandler('slowtraffic75', function()
+RegisterNetEvent('fm-TrafficManager:slowtraffic75')
+AddEventHandler('fm-TrafficManager:slowtraffic75', function()
     ActiveZones = ActiveZones + 1
     if (ActiveZones <= ZoneLimit) then
         blip = AddBlipForRadius(GetEntityCoords(PlayerPedId()),75.0)
@@ -87,8 +88,8 @@ AddEventHandler('slowtraffic75', function()
     
 end)
 
-RegisterNetEvent('slowtraffic100')
-AddEventHandler('slowtraffic100', function()
+RegisterNetEvent('fm-TrafficManager:slowtraffic100')
+AddEventHandler('fm-TrafficManager:slowtraffic100', function()
     ActiveZones = ActiveZones + 1
     if (ActiveZones <= ZoneLimit) then
         blip = AddBlipForRadius(GetEntityCoords(PlayerPedId()),100.0)
@@ -126,8 +127,8 @@ AddEventHandler('slowtraffic100', function()
     
 end)
 
-RegisterNetEvent('resumetraffic')
-AddEventHandler('resumetraffic', function()
+RegisterNetEvent('fm-TrafficManager:resumetraffic')
+AddEventHandler('fm-TrafficManager:resumetraffic', function()
     if speedzone ~= nil then 
         RemoveSpeedZone(speedzone)
         speedzone = nil
@@ -149,8 +150,8 @@ AddEventHandler('resumetraffic', function()
     end
 end)
 
-RegisterNetEvent('stoptraffic50')
-AddEventHandler('stoptraffic50', function()
+RegisterNetEvent('fm-TrafficManager:stoptraffic50')
+AddEventHandler('fm-TrafficManager:stoptraffic50', function()
     ActiveZones = ActiveZones + 1
     if (ActiveZones <= ZoneLimit) then
         blip = AddBlipForRadius(GetEntityCoords(PlayerPedId()),50.0)
@@ -187,8 +188,8 @@ AddEventHandler('stoptraffic50', function()
     end
 end)
 
-RegisterNetEvent('stoptraffic75')
-AddEventHandler('stoptraffic75', function()
+RegisterNetEvent('fm-TrafficManager:stoptraffic75')
+AddEventHandler('fm-TrafficManager:stoptraffic75', function()
     ActiveZones = ActiveZones + 1
     if (ActiveZones <= ZoneLimit) then
         blip = AddBlipForRadius(GetEntityCoords(PlayerPedId()),75.0)
@@ -225,8 +226,8 @@ AddEventHandler('stoptraffic75', function()
     end
 end)
 
-RegisterNetEvent('stoptraffic100')
-AddEventHandler('stoptraffic100', function()
+RegisterNetEvent('fm-TrafficManager:stoptraffic100')
+AddEventHandler('fm-TrafficManager:stoptraffic100', function()
     ActiveZones = ActiveZones + 1
     if (ActiveZones <= ZoneLimit) then
         blip = AddBlipForRadius(GetEntityCoords(PlayerPedId()),100.0)

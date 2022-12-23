@@ -10,6 +10,8 @@ Lang["da"] = {
         ["stoppedtraffic"] = "Trafikken er stoppet",
         -- Limit
         ["zonelimit"] = "Der kan maks laves 1 zone afgangen",
+        -- No access
+        ["noaccess"] = "Du har ikke adgang til denne menu",
     },
 
     menu = {

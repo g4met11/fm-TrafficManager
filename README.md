@@ -4,10 +4,10 @@ Halløjsa, have you also experienced as an officer being run over during a bank 
 
 Features:
 Sprog: DA, EN
-Framework: qbcore (ESX kommer snart)
+Framework: qbcore, esx
 Notify: okok, qbcore, mythic_notify, mb_notify, bub-notify, esx
 
-https://i.imgur.com/UVqSo6e.png
+https://i.imgur.com/Ih8DhLS.png
 
 Showcase:
 https://medal.tv/clips/JSVRPptX96DuZ/vpCHH09NY?invite=cr-MSxxN3osMTMxODM5MzQyLA
