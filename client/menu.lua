@@ -123,7 +123,7 @@ if config.Framework == 'qb' then
     RegisterCommand('TrafficManagerSystemQBcore', function(source, args, user)
         local Player = QBCore.Functions.GetPlayerData()
         local jobName = Player.job.name
-        if Player.job.name == 'police' then
+        if Player.job.name == config.Jobs then
             TriggerEvent('mainMenu:TrafficManagerQBcore')
         elseif config.Notify == 'okok' then
             exports['okokNotify']:Alert(Lang[config.Lang].notify["notifyheader"], Lang[config.Lang].notify["noaccess"], 5000, 'info')
@@ -222,7 +222,7 @@ elseif config.Framework == 'esx' then
         end
     
         RegisterCommand('TrafficManagerSystemESX', function(source, args, user)
-                if ESX.GetPlayerData().job.name == 'police' then
+                if ESX.GetPlayerData().job.name == config.Jobs then
                     OpenTrafficManager()
                 elseif config.Notify == 'okok' then
                     exports['okokNotify']:Alert(Lang[config.Lang].notify["notifyheader"], Lang[config.Lang].notify["noaccess"], 5000, 'info')
