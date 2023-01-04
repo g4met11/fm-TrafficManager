@@ -123,7 +123,7 @@ if config.Framework == 'qb' then
     RegisterCommand('TrafficManagerSystemQBcore', function(source, args, user)
         local Player = QBCore.Functions.GetPlayerData()
         local jobName = Player.job.name
-        if Player.job.name == config.Jobs then
+        if Player.job.name == 'police' then
             TriggerEvent('mainMenu:TrafficManagerQBcore')
         elseif config.Notify == 'okok' then
             exports['okokNotify']:Alert(Lang[config.Lang].notify["notifyheader"], Lang[config.Lang].notify["noaccess"], 5000, 'info')
