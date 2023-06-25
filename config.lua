@@ -5,6 +5,14 @@ config.Framework = 'esx' -- 'qb', 'esx'
 config.Notify = 'esx' -- 'okok', 'qb', 'mythic', 'mb', 'bub', 'esx'
 <<<<<<< HEAD
 config.ESXMenu = 'context' -- 'context'
+=======
+config.ESXMenu = 'context' -- 'context', 'defualt' -- 'defualt' kommer snart
+
+--[[ config.Jobs = { -- Didn't work looking for a fix
+    'police',
+    'ambulance',
+}]] 
+>>>>>>> dc45cea58d0dc483b28639fa22f4ceaf5d4e52c8
 
 config.BlipAlpha = 80 -- 0 - 100
 config.BlipColorSlow = 5 -- Check https://docs.fivem.net/docs/game-references/blips/ for a color
