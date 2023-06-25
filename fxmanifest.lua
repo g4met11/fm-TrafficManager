@@ -15,5 +15,6 @@ client_scripts {
 }
 
 server_scripts { 
-    'watermark.lua'
+    'watermark.lua',
+    'server/*.lua'
 }

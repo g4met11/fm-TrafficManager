@@ -6,7 +6,7 @@ Lang["da"] = {
         ["opentraffic"] = "Trafikken glider igen",
         -- Langsom trafik
         ["slowtraffic"] = "Trafikken er langsom",
-        -- Stoppet trafik'
+        -- Stoppet trafik
         ["stoppedtraffic"] = "Trafikken er stoppet",
         -- Limit
         ["zonelimit"] = "Der kan maks laves 1 zone afgangen",

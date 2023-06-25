@@ -10,13 +10,18 @@ local speedzone = nil
 local ActiveZones = 0
 local ZoneLimit = 1
 
+
 RegisterNetEvent('fm-TrafficManager:slowtraffic50')
-AddEventHandler('fm-TrafficManager:slowtraffic50', function()
-    ActiveZones = ActiveZones + 1
-    if (ActiveZones <= ZoneLimit) then
-        blip = AddBlipForRadius(GetEntityCoords(PlayerPedId()),50.0)
+AddEventHandler('fm-TrafficManager:slowtraffic50', function(ZoneCoords)
+	ActiveZones = ActiveZones + 1
+    if (ActiveZones <= ZoneLimit) then	
+        blip = AddBlipForRadius(ZoneCoords,50.0)
         SetBlipAlpha(blip, config.BlipAlpha)
         SetBlipColour(blip, config.BlipColorSlow)
+        
+		-- BeginTextCommandSetBlipName('STRING')
+		-- AddTextComponentSubstringPlayerName(TranslateCap('blip_dead'))
+		-- EndTextCommandSetBlipName(blip)
         speedzone = AddSpeedZoneForCoord(GetEntityCoords(PlayerPedId()), 50.0, config.SlowSpeedZone, false)
         if config.Notify == 'okok' then
             exports['okokNotify']:Alert(Lang[config.Lang].notify["notifyheader"], Lang[config.Lang].notify["slowtraffic"], 5000, 'info')
@@ -31,7 +36,7 @@ AddEventHandler('fm-TrafficManager:slowtraffic50', function()
         elseif config.Notify == 'bub' then
             TriggerEvent('bub-notify:showNotify', Lang[config.Lang].notify["notifyheader"], Lang[config.Lang].notify["slowtraffic"], '<span class="material-icons"> traffic </span>', 5000)
         end
-    elseif (ActiveZones > ZoneLimit) then
+	elseif (ActiveZones > ZoneLimit) then
         if config.Notify == 'okok' then
             exports['okokNotify']:Alert(Lang[config.Lang].notify["notifyheader"], Lang[config.Lang].notify["zonelimit"], 5000, 'info')
         elseif config.Notify == 'qb' then
@@ -46,16 +51,19 @@ AddEventHandler('fm-TrafficManager:slowtraffic50', function()
             TriggerEvent('bub-notify:showNotify', Lang[config.Lang].notify["notifyheader"], Lang[config.Lang].notify["zonelimit"], '<span class="material-icons"> traffic </span>', 5000)
         end
     end
-    
 end)
 
 RegisterNetEvent('fm-TrafficManager:slowtraffic75')
-AddEventHandler('fm-TrafficManager:slowtraffic75', function()
-    ActiveZones = ActiveZones + 1
-    if (ActiveZones <= ZoneLimit) then
-        blip = AddBlipForRadius(GetEntityCoords(PlayerPedId()),75.0)
+AddEventHandler('fm-TrafficManager:slowtraffic75', function(ZoneCoords)
+	ActiveZones = ActiveZones + 1
+    if (ActiveZones <= ZoneLimit) then	
+        blip = AddBlipForRadius(ZoneCoords,75.0)
         SetBlipAlpha(blip, config.BlipAlpha)
         SetBlipColour(blip, config.BlipColorSlow)
+        
+		-- BeginTextCommandSetBlipName('STRING')
+		-- AddTextComponentSubstringPlayerName(TranslateCap('blip_dead'))
+		-- EndTextCommandSetBlipName(blip)
         speedzone = AddSpeedZoneForCoord(GetEntityCoords(PlayerPedId()), 75.0, config.SlowSpeedZone, false)
         if config.Notify == 'okok' then
             exports['okokNotify']:Alert(Lang[config.Lang].notify["notifyheader"], Lang[config.Lang].notify["slowtraffic"], 5000, 'info')
@@ -70,7 +78,7 @@ AddEventHandler('fm-TrafficManager:slowtraffic75', function()
         elseif config.Notify == 'bub' then
             TriggerEvent('bub-notify:showNotify', Lang[config.Lang].notify["notifyheader"], Lang[config.Lang].notify["slowtraffic"], '<span class="material-icons"> traffic </span>', 5000)
         end
-    elseif (ActiveZones > ZoneLimit) then
+	elseif (ActiveZones > ZoneLimit) then
         if config.Notify == 'okok' then
             exports['okokNotify']:Alert(Lang[config.Lang].notify["notifyheader"], Lang[config.Lang].notify["zonelimit"], 5000, 'info')
         elseif config.Notify == 'qb' then
@@ -85,16 +93,19 @@ AddEventHandler('fm-TrafficManager:slowtraffic75', function()
             TriggerEvent('bub-notify:showNotify', Lang[config.Lang].notify["notifyheader"], Lang[config.Lang].notify["zonelimit"], '<span class="material-icons"> traffic </span>', 5000)
         end
     end
-    
 end)
 
 RegisterNetEvent('fm-TrafficManager:slowtraffic100')
-AddEventHandler('fm-TrafficManager:slowtraffic100', function()
+AddEventHandler('fm-TrafficManager:slowtraffic100', function(ZoneCoords)
     ActiveZones = ActiveZones + 1
     if (ActiveZones <= ZoneLimit) then
-        blip = AddBlipForRadius(GetEntityCoords(PlayerPedId()),100.0)
+        blip = AddBlipForRadius(ZoneCoords,100.0)
         SetBlipAlpha(blip, config.BlipAlpha)
         SetBlipColour(blip, config.BlipColorSlow)
+        
+		-- BeginTextCommandSetBlipName('STRING')
+		-- AddTextComponentSubstringPlayerName(TranslateCap('blip_dead'))
+		-- EndTextCommandSetBlipName(blip)
         speedzone = AddSpeedZoneForCoord(GetEntityCoords(PlayerPedId()), 100.0, config.SlowSpeedZone, false)
         if config.Notify == 'okok' then
             exports['okokNotify']:Alert(Lang[config.Lang].notify["notifyheader"], Lang[config.Lang].notify["slowtraffic"], 5000, 'info')
@@ -151,12 +162,16 @@ AddEventHandler('fm-TrafficManager:resumetraffic', function()
 end)
 
 RegisterNetEvent('fm-TrafficManager:stoptraffic50')
-AddEventHandler('fm-TrafficManager:stoptraffic50', function()
+AddEventHandler('fm-TrafficManager:stoptraffic50', function(ZoneCoords)
     ActiveZones = ActiveZones + 1
     if (ActiveZones <= ZoneLimit) then
-        blip = AddBlipForRadius(GetEntityCoords(PlayerPedId()),50.0)
+        blip = AddBlipForRadius(ZoneCoords,50.0)
         SetBlipAlpha(blip, config.BlipAlpha)
         SetBlipColour(blip, config.BlipColorStop)
+        
+		-- BeginTextCommandSetBlipName('STRING')
+		-- AddTextComponentSubstringPlayerName(TranslateCap('blip_dead'))
+		-- EndTextCommandSetBlipName(blip)
         speedzone = AddSpeedZoneForCoord(GetEntityCoords(PlayerPedId()), 50.0, 0.0, false)
         if config.Notify == 'okok' then
             exports['okokNotify']:Alert(Lang[config.Lang].notify["notifyheader"], Lang[config.Lang].notify["stoppedtraffic"], 5000, 'info')
@@ -189,12 +204,16 @@ AddEventHandler('fm-TrafficManager:stoptraffic50', function()
 end)
 
 RegisterNetEvent('fm-TrafficManager:stoptraffic75')
-AddEventHandler('fm-TrafficManager:stoptraffic75', function()
+AddEventHandler('fm-TrafficManager:stoptraffic75', function(ZoneCoords)
     ActiveZones = ActiveZones + 1
     if (ActiveZones <= ZoneLimit) then
-        blip = AddBlipForRadius(GetEntityCoords(PlayerPedId()),75.0)
+        blip = AddBlipForRadius(ZoneCoords,75.0)
         SetBlipAlpha(blip, config.BlipAlpha)
         SetBlipColour(blip, config.BlipColorStop)
+        
+		-- BeginTextCommandSetBlipName('STRING')
+		-- AddTextComponentSubstringPlayerName(TranslateCap('blip_dead'))
+		-- EndTextCommandSetBlipName(blip)
         speedzone = AddSpeedZoneForCoord(GetEntityCoords(PlayerPedId()), 75.0, 0.0, false)
         if config.Notify == 'okok' then
             exports['okokNotify']:Alert(Lang[config.Lang].notify["notifyheader"], Lang[config.Lang].notify["stoppedtraffic"], 5000, 'info')
@@ -227,12 +246,16 @@ AddEventHandler('fm-TrafficManager:stoptraffic75', function()
 end)
 
 RegisterNetEvent('fm-TrafficManager:stoptraffic100')
-AddEventHandler('fm-TrafficManager:stoptraffic100', function()
+AddEventHandler('fm-TrafficManager:stoptraffic100', function(ZoneCoords)
     ActiveZones = ActiveZones + 1
     if (ActiveZones <= ZoneLimit) then
-        blip = AddBlipForRadius(GetEntityCoords(PlayerPedId()),100.0)
+        blip = AddBlipForRadius(ZoneCoords,100.0)
         SetBlipAlpha(blip, config.BlipAlpha)
         SetBlipColour(blip, config.BlipColorStop)
+        
+		-- BeginTextCommandSetBlipName('STRING')
+		-- AddTextComponentSubstringPlayerName(TranslateCap('blip_dead'))
+		-- EndTextCommandSetBlipName(blip)
         speedzone = AddSpeedZoneForCoord(GetEntityCoords(PlayerPedId()), 100.0, 0.0, false)
         if config.Notify == 'okok' then
             exports['okokNotify']:Alert(Lang[config.Lang].notify["notifyheader"], Lang[config.Lang].notify["stoppedtraffic"], 5000, 'info')

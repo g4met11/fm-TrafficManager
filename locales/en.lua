@@ -7,7 +7,7 @@ Lang["en"] = {
         ["opentraffic"] = "Traffic is now open",
         -- Langsom trafik
         ["slowtraffic"] = "Traffic is now slow",
-        -- Stoppet trafik'
+        -- Stoppet trafik
         ["stoppedtraffic"] = "Traffic has been stopped",
         -- Limit
         ["zonelimit"] = "You can max have 1 zone at a time",

@@ -14,7 +14,7 @@ if config.Framework == 'qb' then
                 txt = Lang[config.Lang].menudesc["opentrafficdesc"],
                 icon = 'fas fa-code-merge',
                 params = {
-                    event = 'fm-TrafficManager:resumetraffic',
+                    event = 'fm-TrafficManager:RemoveBlipS',
                 }
             },  
             {
@@ -48,7 +48,7 @@ if config.Framework == 'qb' then
                 txt = Lang[config.Lang].menudesc["50slowdesc"],
                 icon = 'fas fa-code-merge',
                 params = {
-                    event = 'fm-TrafficManager:slowtraffic50',
+                    event = 'fm-TrafficManager:slowtraffic50f',
                 }
             },
             {
@@ -90,7 +90,7 @@ if config.Framework == 'qb' then
                 txt = Lang[config.Lang].menudesc["50stopdesc"],
                 icon = 'fas fa-code-merge',
                 params = {
-                    event = 'fm-TrafficManager:stoptraffic50',
+                    event = 'fm-TrafficManager:stoptraffic50S',
                 }
             },
             {
@@ -98,7 +98,7 @@ if config.Framework == 'qb' then
                 txt = Lang[config.Lang].menudesc["75stopdesc"],
                 icon = 'fas fa-code-merge',
                 params = {
-                    event = 'fm-TrafficManager:stoptraffic75',
+                    event = 'fm-TrafficManager:stoptraffic75S',
                 }
             },
             {
@@ -106,7 +106,7 @@ if config.Framework == 'qb' then
                 txt = Lang[config.Lang].menudesc["100stopdesc"],
                 icon = 'fas fa-code-merge',
                 params = {
-                    event = 'fm-TrafficManager:stoptraffic100',
+                    event = 'fm-TrafficManager:stoptraffic100S',
                 }
             },
             {
@@ -123,7 +123,7 @@ if config.Framework == 'qb' then
     RegisterCommand('TrafficManagerSystemQBcore', function(source, args, user)
         local Player = QBCore.Functions.GetPlayerData()
         local jobName = Player.job.name
-        if Player.job.name == config.Jobs then
+        if Player.job.name == 'police' then
             TriggerEvent('mainMenu:TrafficManagerQBcore')
         elseif config.Notify == 'okok' then
             exports['okokNotify']:Alert(Lang[config.Lang].notify["notifyheader"], Lang[config.Lang].notify["noaccess"], 5000, 'info')
@@ -156,7 +156,7 @@ elseif config.Framework == 'esx' then
         
             ESX.OpenContext("right", elements, function(menu,element)
                 if element.value == "resumetraffic" then
-                    TriggerEvent('fm-TrafficManager:resumetraffic')
+                    TriggerEvent('fm-TrafficManager:RemoveBlipS')
                     ESX.CloseContext()
                 elseif element.value == "slowtraffic" then
                     SlowTrafficMenu()
@@ -167,7 +167,7 @@ elseif config.Framework == 'esx' then
     
             ESX.OpenContext("right", elements, function(menu,element)
                 if element.value == "resumetraffic" then
-                    TriggerEvent('fm-TrafficManager:resumetraffic')
+                    TriggerServerEvent('fm-TrafficManager:RemoveBlipS')
                     ESX.CloseContext()
                 elseif element.value == "slowtraffic" then
                     SlowTrafficMenu()
@@ -185,15 +185,15 @@ elseif config.Framework == 'esx' then
                 {icon = "fas fa-traffic-light", title = Lang[config.Lang].menu["100slow"], value = "100slow"},
             }
         
-            ESX.OpenContext("right", elements, function(menu,element)
+            ESX.OpenContext("right", elements, function(menu,element,xPlayer)
                 if element.value == "50slow" then
-                    TriggerEvent('fm-TrafficManager:slowtraffic50')
+                    TriggerServerEvent('fm-TrafficManager:slowtraffic50S')
                     ESX.CloseContext()
                 elseif element.value == "75slow" then
-                    TriggerEvent('fm-TrafficManager:slowtraffic75')
+                    TriggerServerEvent('fm-TrafficManager:slowtraffic75S')
                     ESX.CloseContext()
                 elseif element.value == "100slow" then
-                    TriggerEvent('fm-TrafficManager:slowtraffic100')
+                    TriggerServerEvent('fm-TrafficManager:slowtraffic100S')
                     ESX.CloseContext()
                 end
             end)
@@ -209,20 +209,20 @@ elseif config.Framework == 'esx' then
         
             ESX.OpenContext("right", elements, function(menu,element)
                 if element.value == "50stop" then
-                    TriggerEvent('fm-TrafficManager:stoptraffic50')
+                    TriggerServerEvent('fm-TrafficManager:stoptraffic50S')
                     ESX.CloseContext()
                 elseif element.value == "75stop" then
-                    TriggerEvent('fm-TrafficManager:stoptraffic75')
+                    TriggerServerEvent('fm-TrafficManager:stoptraffic75S')
                     ESX.CloseContext()
                 elseif element.value == "100stop" then
-                    TriggerEvent('fm-TrafficManager:stoptraffic100')
+                    TriggerServerEvent('fm-TrafficManager:stoptraffic100S')
                     ESX.CloseContext()
                 end
             end)
         end
     
         RegisterCommand('TrafficManagerSystemESX', function(source, args, user)
-                if ESX.GetPlayerData().job.name == config.Jobs then
+                if ESX.GetPlayerData().job.name == 'police' then
                     OpenTrafficManager()
                 elseif config.Notify == 'okok' then
                     exports['okokNotify']:Alert(Lang[config.Lang].notify["notifyheader"], Lang[config.Lang].notify["noaccess"], 5000, 'info')
@@ -242,8 +242,5 @@ elseif config.Framework == 'esx' then
         if config.UseKeybind =='esx' then
             RegisterKeyMapping('TrafficManagerSystemESX', 'Åben Trafik System', 'keyboard', config.Keybind)
         end
-    end
-    if config.ESXMenu == 'defualt' then
-        
     end
 end
