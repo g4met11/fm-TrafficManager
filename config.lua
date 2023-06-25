@@ -3,7 +3,6 @@ Lang = {}
 config.Lang = 'da' -- 'da', 'en'
 config.Framework = 'esx' -- 'qb', 'esx'
 config.Notify = 'esx' -- 'okok', 'qb', 'mythic', 'mb', 'bub', 'esx'
-<<<<<<< HEAD
 config.ESXMenu = 'context' -- 'context'
 
 config.BlipColorSlow = 5 -- Check https://docs.fivem.net/docs/game-references/blips/ for a color
